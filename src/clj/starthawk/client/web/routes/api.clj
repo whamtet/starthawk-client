@@ -4,6 +4,7 @@
     [starthawk.client.web.controllers.starthawk :as starthawk]
     [starthawk.client.web.middleware.exception :as exception]
     [starthawk.client.web.middleware.formats :as formats]
+    [starthawk.client.web.views.starthawk :as views.starthawk]
     [integrant.core :as ig]
     [reitit.coercion.malli :as malli]
     [reitit.ring.coercion :as coercion]
@@ -43,6 +44,11 @@
       {:status 200
        :headers {"Content-Type" "text/plain"}
        :body (starthawk/refresh-session!)})]
+   ["/status/:id"
+    (fn [req]
+      {:status 200
+       :headers {"Content-Type" "text/html"}
+       :body (-> req :path-params :id views.starthawk/status)})]
    ["/health"
     ;; note that use of the var is necessary
     ;; for reitit to reload routes without
