@@ -1,6 +1,7 @@
 (ns starthawk.client.web.routes.api
   (:require
     [starthawk.client.web.controllers.health :as health]
+    [starthawk.client.web.controllers.starthawk :as starthawk]
     [starthawk.client.web.middleware.exception :as exception]
     [starthawk.client.web.middleware.formats :as formats]
     [integrant.core :as ig]
@@ -37,6 +38,11 @@
     {:get {:no-doc  true
            :swagger {:info {:title "starthawk.client API"}}
            :handler (swagger/create-swagger-handler)}}]
+   ["/login"
+    (fn [req]
+      {:status 200
+       :headers {"Content-Type" "text/plain"}
+       :body (starthawk/refresh-session!)})]
    ["/health"
     ;; note that use of the var is necessary
     ;; for reitit to reload routes without

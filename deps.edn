@@ -24,6 +24,7 @@
            io.github.kit-clj/kit-undertow {:mvn/version "1.0.8"}
            ring-basic-authentication/ring-basic-authentication {:mvn/version "1.2.0"}
            hiccup/hiccup {:mvn/version "2.0.0-RC5"}
+           org.clj-commons/clj-http-lite {:mvn/version "1.0.13"}
            }
  :aliases {:build {:deps {io.github.clojure/tools.build {:mvn/version "0.9.6"}}
                    :ns-default build}

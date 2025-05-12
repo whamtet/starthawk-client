@@ -1,0 +1,1 @@
+{"operationName":"SIGNIN_MUTATION","variables":{"email":"%s","password":"%s"},"query":"mutation SIGNIN_MUTATION($email: String!, $password: String!) {\n  signIn(email: $email, password: $password) {\n    id\n    firstName\n    lastName\n    email\n    token\n    __typename\n  }\n}\n"}
