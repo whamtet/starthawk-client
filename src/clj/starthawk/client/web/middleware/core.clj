@@ -15,7 +15,7 @@
   (let [cookie-store (cookie/cookie-store {:key (.getBytes ^String cookie-secret)})]
     (fn [handler]
       (-> ((:middleware env/defaults) handler opts)
-          (wrap-basic-authentication authenticated?)
           (defaults/wrap-defaults
            (assoc-in site-defaults-config [:session :store] cookie-store))
+          (wrap-basic-authentication authenticated?)
           ))))
