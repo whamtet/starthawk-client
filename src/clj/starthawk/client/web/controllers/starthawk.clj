@@ -20,7 +20,7 @@
 (defn refresh-session! []
   (reset! session (get-session)))
 
-(defn- authorization []
+(defn authorization []
   (str "Bearer " (or @session (refresh-session!))))
 
 (defn get-status [id]
