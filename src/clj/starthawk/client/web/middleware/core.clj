@@ -7,8 +7,8 @@
     [ring.middleware.session.cookie :as cookie]))
 
 (defn authenticated? [name pass]
-  (and (= name (System/getenv "STARTHAWK_USER"))
-       (= pass (System/getenv "STARTHAWK_PASS"))))
+  (and (= name (System/getenv "STARTHAWK_USER2"))
+       (= pass (System/getenv "STARTHAWK_PASS2"))))
 
 (defn wrap-base
   [{:keys [metrics site-defaults-config cookie-secret] :as opts}]
